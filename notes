@@ -164,4 +164,25 @@ also allows user to distribute changed and modified files over a timeline
 helps against data damage (code damage, code currpted) in case of this u can g back in time and u can get the snapshots of the project progress 
 files are stored as series of snapshots 
 Helps in designing complex projectsIn simple terms git and github is google drive but here we only save the source files.
-Git and github works with a disconnected repositry system that is advnmtage
+Git and github works with a disconnected repositry system that is advntage
+for git projects we need
+1) working directory.
+2) Stagging
+3)repositry
+types of files
+1)modified files
+2)stagged files: alerady modified and changed so they are mared for going to next step\
+3)files safely stored in repo.
+
+
+Basic workflow of git
+modified files will be part of working directory all the stage files will be under a stage caalled as staging and once triger commit all the files are stored in the repositry
+
+git config --global username
+git config --global useremail
+git config :it is a git source tool helps us to get a set git configuration variable 
+clone is use for getting copy of a remote repositry on a local machine.
+on a local machine create a workstation to start a project
+enter into the working directory here u will get repsitry  from the remote server.
+
+abd
