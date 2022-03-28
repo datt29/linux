@@ -5,7 +5,8 @@ void *process(void *arg)
     pthread_detach(pthread_self());
     printf("sleeping 2 sec\n");
     sleep(2);
-    printf("Slept 2 sec\n");
+    printf("Slept 2 sec\n");//om
+    
     
 }
 int main(void)
