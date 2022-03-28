@@ -1,0 +1,6 @@
+#include<fcntl.h>
+
+main()
+{
+int open()
+}

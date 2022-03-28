@@ -1,0 +1,167 @@
+processor looks your memory into 2 different modes
+REal mode: IN this prcessor looks on your memory as a sequence of byte where each byte is address.
+Protected mode: 
+once your machine is on processor is in the real mode and looking memory in series of bytes executing bios code and bootloader code in real mode.
+whos memory address provided by the vendor itself.
+once bootloader scan the operating system and loads into the ram and kernel boot up process get starts at this stage 
+processor is shifted from real mode to protected mode and the process is called processor initialization, where your processor looks at your memory as set of block or linked list of pages
+operating sysytem creating illusion to the processorand making processor to look at memory as set of pages.
+
+
+
+ -fpic position independent code 
+ creating dynamic library with a flag called fpicdynamic library should be relocatable,that means this library instruction must be ready to get loaded into any other memory location(any process address space)
+ that is the addresses of lobrary instruction must be changeble.
+ -shared is a flag is usedto generate dynamic library.
+
+
+ led is linux command line tool that will tell what are the shared library deendencies for your executable file.
+
+export lb library path informing dynamic linker where tosearch for dynamic library.
+################################################################################################################################
+We use GDB to debug the code
+GDB allows to provoke the source code while the program is in execution when an crash occurs it also allows us to get the exact reasons to get the crash.
+GDB is command line tool, A free softeare that operates on executable filem produce by compilation process.
+GDB is a powerfull debugging tool for C programming language and also supports other programming languages C++, JAva ,PYTHON.
+  -g is adding dubuging symb;ole table to the executable file
+  Symbols are variables and functions of the source code
+  IN order to pause the execution breakpoint are applied from the gdb command line
+  break point are applied using function name as well as line numbers
+
+P is to use variable value
+Step will step into the function call and execute the function if the function is calling another function it will go into that too
+next command will simply execute the next command 
+Info local will print giving all local variable values 
+While executing with gcc compiler it will not check memory violation ever and will generate executable file, here malloc never generated 2gb of mewmory it returns null.
+most of the ti
+accidentally derefrancing a null pointer
+derefrencing a pointer which is uninitialized
+derefrencing a pointer which is free
+accessing beyond your lower boundry region
+accessing a memory region beyond upper boundry region 
+
+
+when a program is generated(process) and os is allocating some memory to process is called process address space
+now my program is suppose to access aloocated proceess address space if programing is violating the process adderess space then it leads to segmantation fault
+processor  will take logical address and map to the physical addresses.
+in case logical address is  invalid memory address cpu giving same to kernel page frame relation table.
+
+IN buggy code gdb fails to heap memory violation compailer not checking memory allocation
+gcc and gdb are not designed to check memory violation
+glibc is standard c library.has got its own implimentation of malloc calloc and realloc,
+the problem with malloc and respectivde dynamic allocation they alloocate more memory then we request for. in normal desktop pc machine its not a problem but the same thing happens with in embedded application thn its a serious prblem electric fans is a memory profiling library 
+electric fans has its own implimentation of memory allocation , malloc and calloc of electric fans will allocate the given memory that is requested for.
+electric fans is configerd to find out either upper boundry meory violation or lower boundry memory violation,but not both at a time.  Because its a library not a stand alone debugger
+valgrind is run time tool it is used to trap down heap memory violation also called as  memory profiling tool. 
+valgrind is stand alone debugger that is used at runtime
+
+
+Memory maping the address bus is 4 bytes and when cpu is trying to fetch a character data the data on adddress bus will not move till all four bytes are filled now cpu will add unmeaningfull values to the address bus and the data on drives and cpu removes unmeaningfull value and fetches the required data and this process is called as "MEMORY PADDING".
+Structure Padding Same memoryu padding is applied to streuctures is called structre padding 
+adds one or more empty bytes between memory address to align the data in memory 
+allign is a strycture attribute that specifies please provide me required specific amount of memory
+
+23/3
+###########################################################################################################################################################
+
+Make files basic convention is starting with upper case 'M'.
+
+Makefiles is is very similar to command line that runs from  terminal the only difference is makefiles has organized instructions stored as text files, It is set of code,It is simply text file,n number of times we can run makefile to generate final executable.
+Makefile is a program building tool used in linux and unix kind of OS.
+makefiles should be created in current directory.
+make file contains a procedure that is for programming execution build.
+make file is called as kernal build system.
+Processer architecture we have make file
+Entire linux kernel os is built into kernel build system.
+The subsytem also need makefiles called as kernel build makefiles.
+Kernel build developers will be working on kernel build makefile system.
+Linux supporting different processor architecture /lib/modules/5.13.0-35-generic/build/arch/x86 is the path to check.
+
+Makefile can contain variables single target or multiple target 
+Targets are the file names that are gnerated by makefile program
+A targe can be a executable file name or it can be object file or it can be a simple action command such as clean 
+MAkefile cant execute on its own there is a command or tool called make which is linux utility tool that comes by default with linux distribution , The primary job of tool make is executing makefile that is going to the make file and executing instruction of makefile.
+makefile contains variable and target 
+Make will breakdown the large project into the small pices of code and will asees the small pice of code whether it requires recompilation or not.
+Make calling makefile and it is calling gcc so internaly we are calling gcc whule using make command 
+
+This makefile contain varriable and multiple targets here created objects  4files as target
+if i want to compile an individual file than compilation become easier because respective file is compailed.
+
+24/3
+###########################################################################33
+Android is best example of embeded linux 
+embeded linux is compact customized linux system 
+System function call will not return untill execution of shell command.
+Difference between process and threads.
+pthread attribute getstack 
+
+
+until that condition occures that thread has to sleep  therre for pthread _condition thread func call take 2 args 
+the first argument is condition on which thread wait and second is the mutex object.
+sched rr all threads execute for equal amount of time without having priorities
+
+
+process runs at indipendent environment it has own address space and own resources. and in large application there could n number of process running each process is design to handle saperate task at times these processes needs to communicate with each other.
+For process communication it is never recommanded a process x to interfere into the addess space of process y for communication of process x and y
+For that linux has provided techniques called as inter process communication
+
+communication can be on single machine or over the network.
+A communication between the processes on single machine is called as inter process communication and communication over the network is called as network communication.
+For network communication request ip address 32 bit and 16 bit port number 
+Ip address are use to identify nodes in the network.and also use to connect and communication
+16 bit port number are used for identify a process with in the node
+
+communication are two types
+1. connection oriented 
+2. connection less
+
+linux 5 different interprocess cimmunication techniques 
+1. pipe
+2. fifo
+3. memory queue
+4. shared memory
+5. semaphore
+
+pipe is a serial communication device that permites unidirectional data transfer
+pipe use between related process. such as parent and child but not with any other processes 
+
+Whatever is written on write end the dat in the same order is fetched in the read end.
+
+Internally a pipe is a speciall file which has got 2 discripter one discripter is use with write end nd one will be with read end
+
+to create a pipe it requires integer array of 2 elements 0 for read and 1 for write 
+
+Major limitation of pipe is the communication is possible between parent and child.
+pipe created------>parent calling fork system call------>child is inheriting pipe file from parent that is a copy of file disripter copy to child proces 
+
+
+Parent writing at write end and then write end is closed child reading from read end 
+After writing parent is calling flush operation flush is what immidiatly data reflected to read end 
+
+
+pipe capacity is limited.
+writing at faster rate then a consumer processs that is reciving data at slower rate after sometime pipe gets full even writer process has the dat to write but can not write dat to the pipe because pipe is already is full
+Here writer process is getting blocked untill some space or room created in the pipe. 
+
+
+
+Pipe is empty there is no data and a reader is attempting to read data from the pipe then reader process get blocked untill some data written to the pipe.
+
+
+fifo is named pipes which have a name in the file system is oner of the ipc techniue.
+communication through fifo need not to be related processes the parent and child limitation is overruled.
+
+cat /proc/devices will show active character and block devices.
+
+
+
+#######################################################
+Few benifit of having Source controll
+
+Source control helps to track down files and files progress of a project over a period of time.
+also allows user to distribute changed and modified files over a timeline 
+helps against data damage (code damage, code currpted) in case of this u can g back in time and u can get the snapshots of the project progress 
+files are stored as series of snapshots 
+Helps in designing complex projectsIn simple terms git and github is google drive but here we only save the source files.
+Git and github works with a disconnected repositry system that is advnmtage
